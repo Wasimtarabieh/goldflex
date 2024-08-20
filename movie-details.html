@@ -8,52 +8,13 @@
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <div class="logo">
-                <img src="https://github.com/Wasimtarabieh/goldflex/blob/main/الكبار.webp?raw=true" alt="GoldFlex Logo">
-            </div>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="subscribe.html">اشترك</a></li>
-                <li><a href="contact.html">تواصل</a></li>
-            </ul>
-        </nav>
+        <h1>تفاصيل الفيلم</h1>
     </header>
-
-    <section class="movie-details">
-        <div class="movie-poster">
-            <img id="movie-poster" src="" alt="بوستر الفيلم">
-        </div>
-        <div class="movie-info">
-            <h1 id="movie-title">عنوان الفيلم</h1>
-            <p id="movie-description">وصف الفيلم</p>
-        </div>
+    
+    <section id="movie-details">
+        <!-- سيتم توليد تفاصيل الفيلم هنا باستخدام JavaScript -->
     </section>
-
-    <footer>
-        <p>&copy; 2024 GoldFlex</p>
-        <a href="contact.html">تواصل معنا</a>
-    </footer>
-
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const movieId = urlParams.get('movie');
-
-        fetch('movies.json')
-            .then(response => response.json())
-            .then(movies => {
-                const movie = movies.find(m => m.id == movieId);
-                if (movie) {
-                    document.getElementById('movie-poster').src = movie.poster;
-                    document.getElementById('movie-title').innerText = movie.title;
-                    document.getElementById('movie-description').innerText = movie.description;
-                } else {
-                    alert('الفيلم غير موجود.');
-                }
-            })
-            .catch(error => console.error('Error loading movie details:', error));
-    </script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
