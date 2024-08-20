@@ -1,25 +1,22 @@
-document.addEventListener("DOMContentLoaded", function () {
-    fetch('movies.json')
-        .then(response => response.json())
-        .then(movies => {
-            const movieContainer = document.querySelector('.movie-container');
-            movieContainer.innerHTML = '';
+// الحصول على معرّف الفيلم من رابط URL
+const urlParams = new URLSearchParams(window.location.search);
+const movieId = urlParams.get('id');
 
-            movies.forEach(movie => {
-                const movieElement = document.createElement('div');
-                movieElement.classList.add('movie');
-
-                movieElement.innerHTML = `
-                    <img src="${movie.poster}" alt="${movie.title}">
-                    <h3>${movie.title}</h3>
-                `;
-
-                movieElement.addEventListener('click', () => {
-                    window.location.href = `movie-details.html?movie=${movie.id}`;
-                });
-
-                movieContainer.appendChild(movieElement);
-            });
-        })
-        .catch(error => console.error('Error loading movies:', error));
-});
+// جلب بيانات الفيلم من ملف JSON
+fetch('movies.json')
+    .then(response => response.json())
+    .then(data => {
+        const movie = data.find(m => m.id == movieId);
+        if (movie) {
+            document.getElementById('movie-details').innerHTML = `
+                <h2>${movie.title}</h2>
+                <p>${movie.description}</p>
+                <video controls>
+                    <source src="${movie.video}" type="video/mp4">
+                    المتصفح الخاص بك لا يدعم عرض الفيديو.
+                </video>
+            `;
+        } else {
+            alert('الفيلم غير موجود.');
+        }
+    });
