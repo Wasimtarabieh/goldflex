@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Modern Times",
     "description": "A classic silent film by Charlie Chaplin. Duration: 01:27:17 minutes.",
-    "poster": "assets/posters/modern-times.jpg",
+    "poster": "assets/movies/charlie-chaplin.webp",
     "video": "assets/movies/modern-times.mp4"
   }
 ]
