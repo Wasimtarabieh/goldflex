@@ -1,25 +1,19 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('assets/movies.json')
-        .then(response => response.json())
-        .then(data => {
-            const categories = {
-                "adults": document.querySelector('.category-adults'),
-                "kids": document.querySelector('.category-kids'),
-                "teens": document.querySelector('.category-teens'),
-                "series": document.querySelector('.category-series')
-            };
+    const movieContainers = document.querySelectorAll('.movie');
 
-            data.forEach(movie => {
-                const movieElement = document.createElement('div');
-                movieElement.classList.add('movie');
-                movieElement.innerHTML = `
-                    <a href="movie-details.html?id=${movie.id}">
-                        <img src="${movie.image}" alt="${movie.title}">
-                        <h2>${movie.title}</h2>
-                        <p>${movie.description}</p>
-                    </a>
-                `;
-                categories[movie.category].appendChild(movieElement);
+    movieContainers.forEach((container, index) => {
+        const movieId = index + 1;
+        fetch('assets/movies.json')
+            .then(response => response.json())
+            .then(data => {
+                const movie = data.find(m => m.id === movieId);
+                if (movie) {
+                    container.querySelector('img').src = movie.image;
+                    container.querySelector('span').textContent = movie.title;
+                    container.addEventListener('click', () => {
+                        window.location.href = `movie-details.html?id=${movie.id}`;
+                    });
+                }
             });
-        });
+    });
 });
