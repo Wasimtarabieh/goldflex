@@ -1,7 +1,11 @@
+// الحصول على معرّف الفيلم من رابط URL
+const urlParams = new URLSearchParams(window.location.search);
+const movieId = urlParams.get('id');
+
+// جلب بيانات الفيلم من ملف JSON
 fetch('/assets/movies.json')
     .then(response => response.json())
     .then(data => {
-        const movieId = new URLSearchParams(window.location.search).get('id');
         const movie = data.find(m => m.id == movieId);
         if (movie) {
             document.getElementById('movie-details').innerHTML = `
@@ -16,4 +20,4 @@ fetch('/assets/movies.json')
             alert('الفيلم غير موجود.');
         }
     })
-    .catch(error => console.error('Error fetching the movie details:', error));
+    .catch(error => console.error('Error fetching movie data:', error));
