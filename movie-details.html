@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تفاصيل الفيلم</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
         <div class="logo-container">
             <div class="logo">
-                <img src="assets/الكبار.webp" alt="GoldFlex Logo">
+                <img src="https://github.com/Wasimtarabieh/goldflex/blob/main/الكبار.webp?raw=true" alt="GoldFlex Logo">
             </div>
         </div>
         <nav>
@@ -24,31 +23,37 @@
     </header>
 
     <section class="movie-details">
-        <img src="" alt="صورة الفيلم">
-        <h1>عنوان الفيلم</h1>
-        <p>وصف الفيلم</p>
+        <div class="movie-poster">
+            <img id="movie-poster" src="" alt="بوستر الفيلم">
+        </div>
+        <div class="movie-info">
+            <h1 id="movie-title">عنوان الفيلم</h1>
+            <p id="movie-description">وصف الفيلم</p>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2024 GoldFlex</p>
         <a href="contact.html">تواصل معنا</a>
     </footer>
-</body>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const movieId = urlParams.get('id');
 
-    fetch('assets/movies.json')
-        .then(response => response.json())
-        .then(data => {
-            const movie = data.find(m => m.id == movieId);
-            if (movie) {
-                document.querySelector('.movie-details img').src = movie.image;
-                document.querySelector('.movie-details h1').textContent = movie.title;
-                document.querySelector('.movie-details p').textContent = movie.description;
-            }
-        });
-});
-</script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieId = urlParams.get('movie');
+
+        fetch('movies.json')
+            .then(response => response.json())
+            .then(movies => {
+                const movie = movies.find(m => m.id == movieId);
+                if (movie) {
+                    document.getElementById('movie-poster').src = movie.poster;
+                    document.getElementById('movie-title').innerText = movie.title;
+                    document.getElementById('movie-description').innerText = movie.description;
+                } else {
+                    alert('الفيلم غير موجود.');
+                }
+            })
+            .catch(error => console.error('Error loading movie details:', error));
+    </script>
+</body>
 </html>
