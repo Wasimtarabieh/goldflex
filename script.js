@@ -1,19 +1,24 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const movieContainers = document.querySelectorAll('.movie');
-
-    movieContainers.forEach((container, index) => {
-        const movieId = index + 1;
-        fetch('assets/movies.json')
-            .then(response => response.json())
-            .then(data => {
-                const movie = data.find(m => m.id === movieId);
-                if (movie) {
-                    container.querySelector('img').src = movie.image;
-                    container.querySelector('span').textContent = movie.title;
-                    container.addEventListener('click', () => {
-                        window.location.href = `movie-details.html?id=${movie.id}`;
-                    });
-                }
-            });
-    });
-});
+<div class="category">
+    <a href="teens.html">
+        <img src="assets/teen.webp" alt="قسم المراهقين">
+        <span>المراهقين</span>
+    </a>
+</div>
+<div class="category">
+    <a href="kids.html">
+        <img src="assets/kids.webp" alt="قسم الصغار">
+        <span>الصغار</span>
+    </a>
+</div>
+<div class="category">
+    <a href="adults.html">
+        <img src="assets/adults.webp" alt="قسم الكبار">
+        <span>الكبار</span>
+    </a>
+</div>
+<div class="category">
+    <a href="series.html">
+        <img src="assets/series.webp" alt="قسم المسلسلات">
+        <span>المسلسلات</span>
+    </a>
+</div>
