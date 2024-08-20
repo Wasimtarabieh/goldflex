@@ -1,14 +1,9 @@
 [
-    {
-        "id": 1,
-        "title": "فيلم 1",
-        "poster": "https://github.com/Wasimtarabieh/goldflex/blob/main/الكبار.webp?raw=true",
-        "description": "وصف فيلم 1"
-    },
-    {
-        "id": 2,
-        "title": "فيلم 2",
-        "poster": "https://github.com/Wasimtarabieh/goldflex/blob/main/الكبار.webp?raw=true",
-        "description": "وصف فيلم 2"
-    }
+  {
+    "id": 1,
+    "title": "Modern Times",
+    "description": "A classic silent film by Charlie Chaplin. Duration: 01:27:17 minutes.",
+    "poster": "assets/posters/modern-times.jpg",
+    "video": "assets/movies/modern-times.mp4"
+  }
 ]
