@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفاصيل الفيلم</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>تفاصيل الفيلم</h1>
-    </header>
-    
-    <section id="movie-details">
-        <!-- سيتم توليد تفاصيل الفيلم هنا باستخدام JavaScript -->
-    </section>
-    
-    <script src="script.js"></script>
-</body>
-</html>
+[
+  {
+    "id": 1,
+    "title": "Modern Times",
+    "description": "A classic silent film by Charlie Chaplin. Duration: 01:27:17 minutes.",
+    "poster": "assets/movies/charlie-chaplin.webp",
+    "video": "assets/movies/modern-times.mp4"
+  }
+]
