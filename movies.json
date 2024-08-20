@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "title": "فيلم 1",
+        "description": "وصف فيلم 1",
+        "image": "images/movie1.jpg",
+        "category": "adults"
+    },
+    {
+        "id": 2,
+        "title": "فيلم 2",
+        "description": "وصف فيلم 2",
+        "image": "images/movie2.jpg",
+        "category": "kids"
+    },
+    {
+        "id": 3,
+        "title": "فيلم 3",
+        "description": "وصف فيلم 3",
+        "image": "images/movie3.jpg",
+        "category": "teens"
+    }
+    // أضف المزيد من الأفلام حسب الحاجة
+]
