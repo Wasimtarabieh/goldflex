@@ -3,21 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عنوان الفيلم - GoldFlex</title>
+    <title>تفاصيل الفيلم</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <div class="logo">GoldFlex</div>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="الكبار.webp" alt="GoldFlex Logo">
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="subscribe.html">اشترك</a></li>
+                <li><a href="contact.html">تواصل</a></li>
+            </ul>
+        </nav>
     </header>
+
     <section class="movie-details">
-        <img src="images/movie1.jpg" alt="فيلم 1">
+        <img src="" alt="صورة الفيلم">
         <h1>عنوان الفيلم</h1>
-        <p>وصف للفيلم.</p>
-        <button>تشغيل</button>
+        <p>وصف الفيلم</p>
     </section>
+
     <footer>
         <p>&copy; 2024 GoldFlex</p>
+        <a href="contact.html">تواصل معنا</a>
     </footer>
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const movieId = urlParams.get('id');
+
+    fetch('assets/movies.json')
+        .then(response => response.json())
+        .then(data => {
+            const movie = data.find(m => m.id == movieId);
+            if (movie) {
+                document.querySelector('.movie-details img').src = movie.image;
+                document.querySelector('.movie-details h1').textContent = movie.title;
+                document.querySelector('.movie-details p').textContent = movie.description;
+            }
+        });
+});
+</script>
 </html>
